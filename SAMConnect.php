@@ -358,7 +358,7 @@ function SAMConnect_pages_home_html(){
 		if ($scConfig['api_key_verified'] == 1)
 			$pluginStatus = 'API Key Entered & Verified';
 		else
-			$pluginStatus = 'API Key Not Verified';
+			$pluginStatus = 'API Key Invalid';
 			
 	}
 	
@@ -430,12 +430,6 @@ function SAMConnect_pages_settings_html(){
                         <td class="sgFieldLabel">API Key</td>
                         <td class="sgField">
                             <input type="text" name="SAMConnect_api_key" id="SAMConnect_api_key" value="<?php if (!empty($sgConfig['api_key'])) echo $sgConfig['api_key']; ?>"  />
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="sgFieldLabel">API Secret</td>
-                        <td class="sgField">
-                            <input type="text" name="SAMConnect_api_secret" id="SAMConnect_api_secret" value="<?php if (!empty($sgConfig['api_secret'])) echo $sgConfig['api_secret']; ?>"  />
                             <?php
 							
 								if (!empty($sgConfig['api_key'])){
@@ -446,13 +440,19 @@ function SAMConnect_pages_settings_html(){
 										
 									} else {
 										
-										?><div id="samUnVerified">Not Verified!</div><?php
+										?><div id="samUnVerified">Invalid!</div><?php
 											
 									}
 									
 								} 
 							
 							?>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="sgFieldLabel">API Secret</td>
+                        <td class="sgField">
+                            <input type="text" name="SAMConnect_api_secret" id="SAMConnect_api_secret" value="<?php if (!empty($sgConfig['api_secret'])) echo $sgConfig['api_secret']; ?>"  />
                             <br />You can find your API key/secret in SAM->Account->API Keys
                         </td>
                     </tr>
@@ -626,7 +626,7 @@ function SAMConnect_verifyAPIKey($apiKey, $apiSecret){
 		SAM_Account::retrieve();
 		return true;
 	
-	} catch (SAM_AuthenticationError $e) {
+	} catch (Exception $e) {
 		
 		#{ /:o
 		
