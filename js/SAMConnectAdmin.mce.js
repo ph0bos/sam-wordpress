@@ -44,8 +44,15 @@
                 },
                 _do_samassets : function(co) {
                         return co.replace(/\[SAMASSET([^\]]*)\]/g, function(a,b){
-
-				return '<img src="' + window.SAMCU + '/i/socialAsset.png" class="samAssetVisAid" title="SAMASSET'+tinymce.DOM.encode(b)+'" />';
+                                var socialtype;
+                                var split = b.split(' ');
+                                for (var i = 0; i < split.length; i++) {
+                                        var s = split[i].split('=');
+                                        if (s[0] === "socialtype") {
+                                                socialtype = s[1].slice(1, -1);
+                                        }
+                                }
+				return '<img src="' + window.SAMCU + '/i/wp' + socialtype + '.png" class="samAssetVisAid" title="SAMASSET'+tinymce.DOM.encode(b)+'" />';
 				
                         });
                 },

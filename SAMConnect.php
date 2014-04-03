@@ -715,8 +715,7 @@ function SAMConnect_createEmbedHTML($embedId,$socialType){
 	$retHTML = '';
 	switch($socialType) {
 		case 'twitter':
-			
-			$retHTML = json_decode(http_get('https://api.twitter.com/1/statuses/oembed.json?id='.$embedId))->html;
+			$retHTML = json_decode(file_get_contents('https://api.twitter.com/1/statuses/oembed.json?id='.$embedId))->html;
 			break;
 		case 'instagram':
 			$retHTML = '<iframe src="//instagram.com/p/'.$embedId.'/embed/" width="612" height="710" frameborder="0" scrolling="no" allowtransparency="true"></iframe>';

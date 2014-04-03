@@ -475,7 +475,7 @@ function buildAssetHTML(asset){
 
 	// instagram's embedID is not the same as it's publicID
 	if (socialType == 'instagram') {
-		// TODO: get proper instagram embed id
+		embedID = /^.*:\/\/.*instagram\.com\/p\/([^?#\/]+)/.exec(asset.permalink)[1];
 	}
 
 	if (asset.media && asset.media.length) {
