@@ -1,0 +1,22 @@
+/*!
+ * SAM Connect
+ * http://www.samdesk.io
+ * V1.0
+ *
+ * Copyright 2013, Social Asset Management Ltd.
+ *
+ * Date: 28/08/2013
+ */
+
+/* Centrally align tweets with 100% width */
+div.samAsset{
+	width:100%;
+	text-align:center; 
+}
+/* make tweets float inline 
+div.samAsset{
+	display:inline-block;
+}*/
+#samStoryList{
+	overflow-y:scroll;
+}

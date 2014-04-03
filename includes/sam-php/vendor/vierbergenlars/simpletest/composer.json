@@ -1,0 +1,31 @@
+{
+	"name":"vierbergenlars/simpletest",
+	"authors": [
+		{
+			"name":"Marcus Baker",
+			"homepage":"http://sourceforge.net/users/lastcraft"
+		},
+		{
+			"name":"Perrick Penet",
+			"homepage":"http://sourceforge.net/users/pp11"
+		}
+	],
+	"description":"Unit testing for PHP",
+	"keywords": [
+		"SimpleTest",
+		"unittest",
+		"test",
+		"testing"
+	],
+	"license": "LGPL",
+	"require": {
+		"php": ">=5",
+		"simpletest/simpletest": "self.version"
+	},
+	"suggest": {
+		"simpletest/simpletest": "WARNING: This package is being replaced by simpletest/simpletest. Please update your composer.json."
+	},
+	"autoload": {
+		"classmap": [""]
+	}
+}

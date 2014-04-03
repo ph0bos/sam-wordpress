@@ -1,0 +1,128 @@
+[
+    {
+        "name": "simpletest/simpletest",
+        "version": "v1.1.6",
+        "version_normalized": "1.1.6.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/simpletest/simpletest.git",
+            "reference": "43d947f842b7295c091a57c979a4533d3d6e9212"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/simpletest/simpletest/zipball/43d947f842b7295c091a57c979a4533d3d6e9212",
+            "reference": "43d947f842b7295c091a57c979a4533d3d6e9212",
+            "shasum": ""
+        },
+        "require": {
+            "php": ">=5.0.5"
+        },
+        "time": "2013-09-21 21:04:19",
+        "type": "library",
+        "installation-source": "dist",
+        "autoload": {
+            "classmap": [
+                "."
+            ]
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "LGPL-2.0+"
+        ],
+        "authors": [
+            {
+                "name": "Lars Vierbergen",
+                "email": "vierbergenlars@gmail.com"
+            },
+            {
+                "name": "Lachlan Donald",
+                "email": "lachlan@ljd.cc"
+            },
+            {
+                "name": "Marcus Baker",
+                "email": "marcus@lastcraft.com",
+                "role": "Original project lead"
+            },
+            {
+                "name": "Jason Sweat",
+                "role": "Original developer"
+            },
+            {
+                "name": "Travis Swicegood",
+                "role": "Original developer"
+            },
+            {
+                "name": "Perrick Penet",
+                "role": "Original developer"
+            },
+            {
+                "name": "Edward Z. Yang",
+                "role": "Original developer"
+            }
+        ],
+        "description": "Unit testing, mock objects and web testing framework for PHP built around test cases.",
+        "homepage": "http://simpletest.org/",
+        "keywords": [
+            "SimpleTest",
+            "code-coverage",
+            "junit",
+            "php",
+            "selenium",
+            "testing",
+            "unit-test",
+            "xunit"
+        ]
+    },
+    {
+        "name": "vierbergenlars/simpletest",
+        "version": "v1.1.6",
+        "version_normalized": "1.1.6.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/vierbergenlars/simpletest.git",
+            "reference": "29e74d0887056c6f0690ee1a7f8bfa8062b3bef0"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/vierbergenlars/simpletest/zipball/29e74d0887056c6f0690ee1a7f8bfa8062b3bef0",
+            "reference": "29e74d0887056c6f0690ee1a7f8bfa8062b3bef0",
+            "shasum": ""
+        },
+        "require": {
+            "php": ">=5",
+            "simpletest/simpletest": "self.version"
+        },
+        "suggest": {
+            "simpletest/simpletest": "WARNING: This package is being replaced by simpletest/simpletest. Please update your composer.json."
+        },
+        "time": "2013-09-21 21:14:06",
+        "type": "library",
+        "installation-source": "dist",
+        "autoload": {
+            "classmap": [
+                ""
+            ]
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "LGPL"
+        ],
+        "authors": [
+            {
+                "name": "Marcus Baker",
+                "homepage": "http://sourceforge.net/users/lastcraft"
+            },
+            {
+                "name": "Perrick Penet",
+                "homepage": "http://sourceforge.net/users/pp11"
+            }
+        ],
+        "description": "Unit testing for PHP",
+        "keywords": [
+            "SimpleTest",
+            "test",
+            "testing",
+            "unittest"
+        ]
+    }
+]

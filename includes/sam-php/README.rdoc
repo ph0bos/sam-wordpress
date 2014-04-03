@@ -1,0 +1,30 @@
+= Installation
+
+Obtain the latest version of the SAM PHP bindings with:
+
+    git clone https://github.com/SAMDesk/sam-php
+
+To get started, add the following to your PHP script:
+
+    require_once("/path/to/sam-php/lib/SAM.php");
+
+Simple usage looks like:
+
+    SAM::setApiKey('<API_KEY>');
+    SAM::setApiSecret('<API_SECRET>');
+    $account = SAM_Account::retrieve();
+    echo $account;
+
+= Documentation
+
+Please contact james@samdesk.io for up-to-date documentation.
+
+= Tests
+
+In order to run tests you have to install SimpleTest (http://packagist.org/packages/vierbergenlars/simpletest) via Composer (http://getcomposer.org/) (recommended way):
+
+    composer.phar update --dev
+
+Run test suite:
+
+    php ./test/SAM.php
