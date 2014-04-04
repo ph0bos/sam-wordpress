@@ -99,13 +99,13 @@ function resizeTB(){
 	// Resize our stuff
 	var w = jQuery('#TB_window').width(); var h = jQuery('#TB_window').height();
 	jQuery('#samStoryContent').css('width',(w-241) + 'px').css('height',h);
-	jQuery('#samStoryContent').css('height',h);
+	jQuery('#samStoryContent').css('height',h-1);
 	
 	// Resize depending if select bar out!
 	if (jQuery('#samAssetSelectBar').css('display') == "none")
-		jQuery('#samStoryContent #samStoryAssetWrap').css('height',(h-20)+'px'); //4040
+		jQuery('#samStoryContent #samStoryAssetWrap').css('height',(h-20-22)+'px'); //4040
 	else
-		jQuery('#samStoryContent #samStoryAssetWrap').css('height',(h-94)+'px'); //4040
+		jQuery('#samStoryContent #samStoryAssetWrap').css('height',(h-94-22)+'px'); //4040
 	var loadingHalf = ((h/2)-50);
 	jQuery('#samLoading').css('height',(h-loadingHalf) + 'px').css('padding-top',loadingHalf + 'px');
 			
@@ -155,7 +155,7 @@ function loadStories(){
 			// For now don't discern amongst stories (no user known)
 			// Gross brutal output
 			jQuery('#samStoryList').append('<div class="storyGroupHead">Stories</div>');
-			jQuery('#samStoryContent').append('<div class="colHead">Story: Social Assets</div><div id="storyResultsLoading" style="display: none;"><img src="' + SAMCU + 'i/cog2g_40.gif" alt=""></div>');			
+			jQuery('#samStoryContent').append('<div class="colHead"></div><div id="storyResultsLoading" style="display: none;"><img src="' + SAMCU + 'i/cog2g_40.gif" alt=""></div>');
 			jQuery('#samStoryContent').append('<div id="samAssetSelectBar"><div id="samAssetSelected"></div><div id="samAssetInsert"><button id="samInsertAsset" type="button" class="button button-primary button-large">Insert Into Post</button></div></div>');
 			jQuery('#samStoryContent').append('<div id="samStoryAssetWrap"></div><div id="assetLoadingStoryAssets"></div>');			
 			
@@ -178,10 +178,8 @@ function loadStories(){
 				if (storyID == window.samCurrentStory) storyHTML += ' selected';
 				storyHTML += '" id="story' + storyID + '" data-storyid="' + storyID + '">';
 				storyHTML += '				<div class="title">' + ele.name + '</div>';
-				storyHTML += '				<div class="statusIndicator"></div>';
 				storyHTML += '				<div class="contenTypeStats">';
-				storyHTML += '					<div class="textNo fourCharNo selected">' + fourCharNo(ele.socialAssets.length) + '</div>';
-				storyHTML += '					<div class="textLabel">Social Assets</div>';
+				storyHTML += '					<div class="textNo fourCharNo selected">' + fourCharNo(ele.socialAssets.length) + ' assets</div>';
 				storyHTML += '				</div>';
 				storyHTML += '			 </div>';
 
@@ -484,7 +482,6 @@ function buildAssetHTML(asset){
 
 			// Hacked from template #assetImgTemplateFull	
 			retHTML = '<div class="assetFull clickable assetImgFull" data-socialtype="' + socialType + '" data-embedid="' + embedID + '">';
-			retHTML += '	<div class="assetMedia"><img src="' + asset.media[0].mediaUrl + '" alt="" /></div>';
 			retHTML += '	<div class="asset storyAsset">';
 			retHTML += '		<img src="' + avatar + '" alt="">';
 			retHTML += '		<div class="assetDets">';
@@ -498,6 +495,7 @@ function buildAssetHTML(asset){
 			retHTML += '		</div>';
 			retHTML += '		<div class="clr"></div>';
 			retHTML += '	</div>';
+			retHTML += '	<div class="assetMedia"><div class="media" style="background-image:url(' + asset.media[0].mediaUrl + ')" alt="" /></div>';
 			retHTML += '</div>';
 
 		} else if (asset.media[0].mediaType == 'video') {
@@ -507,7 +505,6 @@ function buildAssetHTML(asset){
 	
 			// Hacked from template #assetVideoTemplateFull	
 			retHTML = '<div class="assetFull clickable assetVidFull" data-socialtype="' + socialType + '" data-embedid="' + embedID + '">';
-			retHTML += '	<div class="assetMedia">' + videoCode + '</div>';
 			retHTML += '	<div class="asset storyAsset">';
 			retHTML += '		<img src="' + avatar + '" alt="">';
 			retHTML += '		<div class="assetDets">';
@@ -521,6 +518,7 @@ function buildAssetHTML(asset){
 			retHTML += '		</div>';
 			retHTML += '		<div class="clr"></div>';
 			retHTML += '	</div>';
+			retHTML += '	<div class="assetMedia">' + videoCode + '</div>';
 			retHTML += '</div>';
 
 		}
