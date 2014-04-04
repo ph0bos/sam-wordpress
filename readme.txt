@@ -1,15 +1,10 @@
-Plugin Name: SAM Connect
-Plugin URI: http://www.samdesk.io
-Description: <a href="http://www.samdesk.io">SAM Connect</a> connects your WordPress blog with your SAM Social Asset Management system.
-Version: 1.0
-Author: SAM
-http://www.samdesk.io
----------------------------
-Copyright 2013, Social Asset Management Ltd.
+=== SAM Connect ===
+Tested up to: 3.8
 
+SAM Connect connects your WordPress blog with your SAM Social Asset Management system.
 
---------CHANGE LOG--------------------------------------------------
+== Description ==
+SAM Connect connects your WordPress blog with your SAM Social Asset Management system.
 
--------------------------------------------
-v1.0 - 28/08/2013 - Initial Release
--------------------------------------------
+== Installation ==
+Download this repository as a zip and upload the zipped file to your WordPress installation under the \"Plugins\" menu.
