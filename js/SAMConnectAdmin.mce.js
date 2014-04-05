@@ -13,7 +13,6 @@
                         var t = this;
                         t.url = url;
                         t.editor = ed;
-                        t._createButtons();
                         ed.onBeforeSetContent.add(function(ed, o) {
                                 o.content = t._do_samassets(o.content);
                         });
@@ -66,33 +65,6 @@
                                 if ( cls.indexOf('samAssetVisAid') != -1 )
                                         return '<p>['+tinymce.trim(getAttr(im, 'title'))+']</p>';
                                 return a;
-                        });
-                },
-                _createButtons : function() {
-                        var t = this, ed = tinymce.activeEditor, DOM = tinymce.DOM, editButton, dellButton, isRetina;
-                        if ( DOM.get('wp_samconnectbtns') )
-                                return;
-                        isRetina = ( window.devicePixelRatio && window.devicePixelRatio > 1 ) || // WebKit, Opera
-                                ( window.matchMedia && window.matchMedia('(min-resolution:130dpi)').matches ); // Firefox, IE10, Opera
-                        DOM.add(document.body, 'div', {
-                                id : 'wp_samconnectbtns',
-                                style : 'display:none;'
-                        });
-                        dellButton = DOM.add('wp_samconnectbtns', 'img', {
-                                src : isRetina ? t.url+'/img/delete-2x.png' : t.url+'/img/delete.png',
-                                id : 'wp_delsamasset',
-                                width : '24',
-                                height : '24',
-                                title : 'Delete SAM Asset'
-                        });
-                        tinymce.dom.Event.add(dellButton, 'mousedown', function(e) {
-                                var ed = tinymce.activeEditor, el = ed.selection.getNode();
-                                if ( el.nodeName == 'IMG' && ed.dom.hasClass(el, 'samAssetVisAid') ) {
-                                        ed.dom.remove(el);
-                                        ed.execCommand('mceRepaint');
-                                        ed.dom.events.cancel(e);
-                                }
-                                ed.plugins.wordpress._hideButtons();
                         });
                 },
                 getInfo : function() {
