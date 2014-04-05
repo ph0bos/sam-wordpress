@@ -937,7 +937,7 @@
 	position:relative;
 	width:100%;
 	height:72px; /* was 102px; */
-	background:#fafafa;
+	background:#f1f1f1;
 	border-bottom:1px solid #CCC;
 	float:left;
 }
@@ -958,7 +958,7 @@
 	padding: 0 16px;
     height: 40px;
     line-height: 40px;
-    background: #fff;
+    background: #f1f1f1;
 	border-bottom: 1px solid #CCC;
 }
 
@@ -967,6 +967,9 @@
 	position: absolute;
 	top: 18px;
 	left: 17px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 #samStoryWrap #samStoryList .story .statusIndicator {
 	width:12px;height:12px;
@@ -1064,11 +1067,11 @@
     line-height: 40px;
 	font-size: 14px;
 	color: rgb(54, 53, 53);
-	background: #f1f1f1;
+	background: #ffffff;
 	text-align: left;
 	padding-left: 20px;
 	margin-bottom: 0;	
-	border-bottom: 1px solid #ccc;
+	border-bottom: 1px solid #e8e8e8;
 }
 #samStoryContent #storyResultsLoading {
 	position:absolute;		
@@ -1333,15 +1336,44 @@
 	margin-bottom:20px;
 	margin-left:10px;
 	margin-right:10px;
-	border:1px solid #e1e1e1;
+	border:1px solid #e8e8e8;
 	background: #FFF;
 }
-
+.assetFull.unsupported:before {
+    content: '';
+    position: absolute;
+    display: block;
+    left: 0; right: 0;
+    top: 0; bottom: 0;
+    background: rgba(210,210,210,0.7);
+    border-radius: 3px;
+    z-index: 10;
+}
+.assetFull.unsupported:after {
+    content: 'Facebook is not supported at this time.';
+    position: absolute;
+    display: block;
+    top: 50%;
+    text-align: center;
+    width: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
+    z-index: 10;
+    font-size: 12pt;
+    line-height: 1.3;
+    font-weight: bold;
+    text-shadow: 0 0 2px #000;
+}
 .assetFull .assetText {
 	font-size: 14px;
 	color: #676767;
     margin-top: 10px;
     width: 208px;
+    text-overflow: ellipsis;
+    overflow: hidden;
 }
 .assetFull .assetMedia {
 	font-size: 14px;
@@ -1351,13 +1383,20 @@
 	border-top-right-radius: 5px;
     padding: 0 10px 10px 10px;
 }
-.assetFull .media {
+.assetFull .media, .assetFull video, .assetFull iframe, .assetFull embed {
     width: 274px;
     height: 180px;
+    border-radius: 3px;
+    overflow: hidden;
+}
+.assetFull video, .assetFull iframe, .assetFull embed {
+    background-color: #222;
+}
+.assetFull .media {
+    background-color: #ccc;
     background-size: cover;
     background-position: 50% 50%;
     background-repeat: no-repeat;
-    border-radius: 3px;
 
 }
 .assetFull .assetDets {
@@ -1747,6 +1786,8 @@
 	top:0;
 	width: 218px;
 	font-weight:normal;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 
@@ -1812,4 +1853,8 @@
 
 #assetLoadingStoryAssets {
 	display:none;	
+}
+
+#samStoryAssetWrap {
+    background-color: #ffffff;
 }

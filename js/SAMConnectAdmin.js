@@ -467,6 +467,7 @@ function buildAssetHTML(asset){
 	var handle = asset.authorDisplayName;
 	var assetTxt = asset.longText;
 	var assetPrettyDate = unix2PrettyDate(asset.postedDate);
+    var unsupported = asset.socialType === 'facebook' ? ' unsupported' : '';
 	var retHTML = '';
 
 	var embedID = publicID;
@@ -481,7 +482,7 @@ function buildAssetHTML(asset){
 		if (asset.media[0].mediaType == 'image') {
 
 			// Hacked from template #assetImgTemplateFull	
-			retHTML = '<div class="assetFull clickable assetImgFull" data-socialtype="' + socialType + '" data-embedid="' + embedID + '">';
+			retHTML = '<div class="assetFull clickable assetImgFull' + unsupported + '" data-socialtype="' + socialType + '" data-embedid="' + embedID + '">';
 			retHTML += '	<div class="asset storyAsset">';
 			retHTML += '		<img src="' + avatar + '" alt="">';
 			retHTML += '		<div class="assetDets">';
@@ -504,7 +505,7 @@ function buildAssetHTML(asset){
 			var videoCode = makeVideoEmbedCode(asset.media[0].socialType,asset.media[0].mediaUrl);
 	
 			// Hacked from template #assetVideoTemplateFull	
-			retHTML = '<div class="assetFull clickable assetVidFull" data-socialtype="' + socialType + '" data-embedid="' + embedID + '">';
+			retHTML = '<div class="assetFull clickable assetVidFull' + unsupported + '" data-socialtype="' + socialType + '" data-embedid="' + embedID + '">';
 			retHTML += '	<div class="asset storyAsset">';
 			retHTML += '		<img src="' + avatar + '" alt="">';
 			retHTML += '		<div class="assetDets">';
@@ -526,7 +527,7 @@ function buildAssetHTML(asset){
 	} else {
 
 		// Hacked from template #assetTemplateFull	
-		retHTML = '<div class="assetFull clickable" data-socialtype="' + socialType + '" data-embedid="' + embedID + '">';
+		retHTML = '<div class="assetFull clickable' + unsupported + '" data-socialtype="' + socialType + '" data-embedid="' + embedID + '">';
 		retHTML += '	<div class="asset storyAsset">';
 		retHTML += '		<img src="' + avatar + '" alt="">';
 		retHTML += '		<div class="assetDets">';
