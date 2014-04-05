@@ -710,12 +710,18 @@ function SAMConnect_shortcode( $atts ){
 add_shortcode( 'SAMASSET', 'SAMConnect_shortcode' );
 
 #} Create Tweet Embed HTML
-function SAMConnect_createEmbedHTML($embedId,$socialType){
+function SAMConnect_createEmbedHTML($embedId,$socialType) {
 	
 	$retHTML = '';
 	switch($socialType) {
 		case 'twitter':
-			$retHTML = json_decode(file_get_contents('https://api.twitter.com/1/statuses/oembed.json?id='.$embedId))->html;
+			try {
+				$retHTML = json_decode(wp_remote_retrieve_body(wp_remote_get('https://api.twitter.com/1/statuses/oembed.json?id='.$embedId)))->html;
+			} catch (Exception $e) {
+				$retHTML = "<p>Unable to retrieve embed code from Twitter.".
+				" This could either be caused by an error with Twitter or an error with your web host's php config.".
+				" If the problem persists, please contact james@samdesk.io.</p>";
+			}
 			break;
 		case 'instagram':
 			$retHTML = '<iframe src="//instagram.com/p/'.$embedId.'/embed/" width="612" height="710" frameborder="0" scrolling="no" allowtransparency="true"></iframe>';
