@@ -201,7 +201,7 @@ function SAMConnect_add_socialasset_button() {
 	if (!empty($scConfig['api_key']))	
 		if ($scConfig['api_key_verified'] == 1) {	
 			#} Adapted straight from WP button
-			?><a href='#' class="button add_asset" data-editor="content" title="Add Social Asset" id="SAMStoryPicker"><span class="wp-media-buttons-icon" style="width:18px;background: url('<?php echo plugins_url('i/sam-grey-1812.png',__FILE__); ?>') no-repeat top left;"></span> Add Social Asset</a><?php
+			?><a href='#' class="button add_asset" data-editor="content" title="Add Social Asset" id="SAMStoryPicker"><span class="wp-media-buttons-icon" style="width:18px;background: url('<?php echo plugins_url('/i/sam-grey-1812.png',__FILE__); ?>') no-repeat top left;"></span> Add Social Asset</a><?php
 		}
 	
 }
@@ -211,7 +211,7 @@ function SAMConnect__admin_menu() {
 
 	global $SAMConnect_slugs; #} Req
 	
-	add_menu_page( 'SAM Connect', 'SAM Connect', 'manage_options', $SAMConnect_slugs['home'], 'SAMConnect_pages_home', plugins_url('i/icon.png',__FILE__));
+	add_menu_page( 'SAM Connect', 'SAM Connect', 'manage_options', $SAMConnect_slugs['home'], 'SAMConnect_pages_home', plugins_url('/i/icon.png',__FILE__));
     add_submenu_page( $SAMConnect_slugs['home'], 'Settings', 'Settings', 'manage_options', $SAMConnect_slugs['settings'], 'SAMConnect_pages_settings' );
 		
 }
@@ -290,7 +290,7 @@ function SAMConnect_query_vars($vars){
 
 #} Shortcode in WYSIWYG
 function SAMConnect_WYSIWYG_add_plugin( $plugin_array ) {
-   $plugin_array['samconnect'] = plugins_url('/sam-wordpress/js/SAMConnectAdmin.mce.js'); 
+   $plugin_array['samconnect'] = plugins_url('/js/SAMConnectAdmin.mce.js',__FILE__); 
    return $plugin_array;
 }
 function SAMConnect_WYSIWYG_add() {
@@ -599,7 +599,7 @@ function SAMConnect_add_social_asset_picker() {
     	<div id="samStoryList"></div>
         <div id="samStoryContent"></div>
         <div id="samLoading">
-        	<img src="<?php echo plugins_url('i/sam-connect.png',__FILE__); ?>" /><br />
+        	<img src="<?php echo plugins_url('/i/sam-connect.png',__FILE__); ?>" /><br />
             <div>Retrieving your stories...</div>
         </div>
     </div>
