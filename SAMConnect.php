@@ -127,7 +127,7 @@ function SAMConnect__init(){
 
 	#} Admin only
 	if (is_admin()) {
-		
+
 		#} Admin CSS
 		wp_enqueue_style('SAMConnectPluginCSSADM', plugins_url('/css/SAMConnectAdmin.css',__FILE__) );
 		
