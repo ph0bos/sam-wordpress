@@ -3,7 +3,7 @@
 Plugin Name: SAM Connect
 Plugin URI: http://www.samdesk.io
 Description: <a href="http://www.samdesk.io">SAM Connect</a> connects your WordPress blog with your SAM Social Asset Management system.
-Version: 1.0
+Version: 1.0.1
 Author: SAM
 http://www.samdesk.io
 */
@@ -15,7 +15,7 @@ http://www.samdesk.io
     register_deactivation_hook(__FILE__,'SAMConnect__uninstall');
     
     #} General
-	add_action('init', 'SAMConnect__init');
+    add_action('init', 'SAMConnect__init');
     add_action('admin_menu', 'SAMConnect__admin_menu'); 
     add_action('admin_head', 'SAMConnect__adminheader_includes'); 
     add_action('wp_head', 'SAMConnect__publicheader_includes'); 
@@ -700,10 +700,10 @@ function SAMConnect_shortcode( $atts ){
 		$embedId = $atts['embedid'];
 		$socialType = $atts['socialtype'];
 
-		$returnHTML = '<div class="samAsset">'.SAMConnect_createEmbedHTML($embedId,$socialType).'</div>';
+		$returnHTML = SAMConnect_createEmbedHTML($embedId,$socialType);
 	}
 
-	return $returnHTML;		
+	return apply_filters('sam_embed', $returnHTML);
 }
 
 #} Define shortcode.
